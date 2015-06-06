@@ -5,6 +5,7 @@
   <title>Cheap Deals for Students</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/modernizr.js"></script>
 </head>
@@ -52,7 +53,7 @@
       <div class="medium-8 medium-centered large-uncentered medium-text-center large-text-left columns">
         <h1>Stay up to date with the latest offers!</h1>
         <p>Sign up to our weekly E-Mail and have tailored deals sent directly to your inbox!</p>
-        <button class="alert">Get weekly deals!</button>
+        <a href="weekly-subscription.html" class="alert button">Get weekly deals!</a>
       </div>
     </div>
   </div>
@@ -61,7 +62,7 @@
   <div id="latest-deals">
     <div class="row">
       <div class="medium-10 medium-centered columns text-center">
-        <h2>You're welcome</h2>
+        <h2>The latest deals <br><small>you're welcome.</small></h2>
       </div>
     </div>
     <div class="row">
@@ -106,48 +107,92 @@
   <div id="deal-categories">
     <div class="row">
       <div class="columns">
-        <h2 class="text-center">Categories</h2>
+        <h2 class="text-center">Pick a category <br><small>any category...</small></h2>
       </div>
     </div>
     <div class="row">
       <div class="columns">
-        <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-8 text-center">
+        <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-7 text-center">
           <li>
-            <img src="http://placehold.it/160x160/E4F1FE/2C3E50?text=" alt="Placeholder image for company logo">
-            <p><a href="category.html">Food</a></p>
+            <p><a href="category.html"><i class="fa fa-cutlery"></i><br>Food</a></p>
           </li>
           <li>
-            <img src="http://placehold.it/160x160/E4F1FE/2C3E50?text=" alt="Placeholder image for company logo">
-            <p><a href="category.html">Clothing</a></p>
+            <p><a href="category.html"><i class="fa fa-tags"></i><br>Shopping</a></p>
           </li>
           <li>
-            <img src="http://placehold.it/160x160/E4F1FE/2C3E50?text=" alt="Placeholder image for company logo">
-            <p><a href="category.html">Beauty</a></p>
+            <p><a href="category.html"><i class="fa fa-heart"></i><br>Beauty</a></p>
           </li>
           <li>
-            <img src="http://placehold.it/160x160/E4F1FE/2C3E50?text=" alt="Placeholder image for company logo">
-            <p><a href="category.html">Computers</a></p>
+            <p><a href="category.html"><i class="fa fa-laptop"></i><br>Computers</a></p>
           </li>
           <li>
-            <img src="http://placehold.it/160x160/E4F1FE/2C3E50?text=" alt="Placeholder image for company logo">
-            <p><a href="category.html">Software</a></p>
+            <p><a href="category.html"><i class="fa fa-subway"></i><br>Transport</a></p>
           </li>
           <li>
-            <img src="http://placehold.it/160x160/E4F1FE/2C3E50?text=" alt="Placeholder image for company logo">
-            <p><a href="category.html">Accomodation</a></p>
+            <p><a href="category.html"><i class="fa fa-bed"></i><br>Accomodation</a></p>
           </li>
           <li>
-            <img src="http://placehold.it/160x160/E4F1FE/2C3E50?text=" alt="Placeholder image for company logo">
-            <p><a href="category.html">category</a></p>
-          </li>
-          <li>
-            <img src="http://placehold.it/160x160/E4F1FE/2C3E50?text=" alt="Placeholder image for company logo">
-            <p><a href="category.html">category</a></p>
+            <p><a href="category.html"><i class="fa fa-plane"></i><br>Travel</a></p>
           </li>
         </ul>
       </div>
     </div>
   </div>
+
+  <footer id="footer">
+    <div class="row">
+      <div class="large-8 columns">
+        <h1>You've reached the bottom <br><small>but not the end...</small></h1>
+      </div>
+      <div class="medium-6 large-4 columns end">
+        <form action="search.html" method="get">
+          <label for="search-query">Search: </label>
+          <div class="row collapse">
+            <div class="small-9 medium-10 columns">
+              <input type="search" name="query">
+            </div>
+            <div class="small-3 medium-2 columns end">
+              <input type="submit" name="search" value="Search" class="button postfix">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns">
+        <ul class="no-bullet small-block-grid-2 medium-block-grid-4">
+          <li><strong>Site Navigation</strong>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><strong>Accounts</strong>
+            <ul>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="register.html">Register</a></li>
+            </ul>
+          </li>
+          <li><strong>Addition links</strong>
+            <ul>
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="index.html">Terms &amp; Conditions</a></li>
+              <li><a href="weekly-subscription.html">Weekly subscription</a></li>
+            </ul>
+          </li>
+          <li><strong>Contact Info</strong>
+            <ul class="no-bullet">
+              <li><i class="fa fa-phone"></i> 04 123 4567</li>
+              <li><i class="fa fa-envelope"></i> E-Mail</li>
+              <li></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
   <!-- Mobile search field (to go into footer) -->
   <!-- <div class="row hidden-for-large-up">

@@ -43,4 +43,29 @@ $headingFont: 'Indie Flower', cursive;
       bottom: 1em;
     }
   }
+  i {
+    font-size: 6em;
+    padding-bottom: 1rem;
+  }
+  a {
+    color: #333;
+  }
+}
+
+#footer {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  background-color: #333;
+  color: #fff;
+  h1 {
+    color: inherit;
+    font-family: $headingFont;
+  }
+  label {
+    color: inherit;
+  }
+  i {
+    display: inline-block;
+    width: 1.4em;
+  }
 }
