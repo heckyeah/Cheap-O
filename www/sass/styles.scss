@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 
+$headingFont: 'Indie Flower', cursive;
+
 #call-to-action {
   padding-top: 6em;
   padding-bottom: 6em;
@@ -26,8 +28,19 @@
     padding-top: 2em;
     padding-bottom: 2em;
     h2 {
-      font-family: 'Indie Flower', cursive;
+      font-family: $headingFont;
       font-size: 2.6em;
+    }
+  }
+}
+
+#deal-categories {
+  background-color: #ddd;
+  h2 {
+    font-family: $headingFont;
+    padding: {
+      top: 1em;
+      bottom: 1em;
     }
   }
 }
