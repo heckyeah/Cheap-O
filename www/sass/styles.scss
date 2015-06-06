@@ -21,6 +21,8 @@ $headingFont: 'Indie Flower', cursive;
 
 #latest-deals {
   padding-top: 1em;
+  padding-bottom: 1em;
+  background-image: url(../img/latest-deals-background.png);
   a {
     color: inherit;
   }
@@ -31,6 +33,9 @@ $headingFont: 'Indie Flower', cursive;
       font-family: $headingFont;
       font-size: 2.6em;
     }
+  }
+  img {
+    padding-bottom: 1rem;
   }
 }
 
