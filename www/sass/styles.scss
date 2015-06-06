@@ -1,0 +1,16 @@
+#call-to-action {
+  padding-top: 6em;
+  padding-bottom: 6em;
+  background: {
+    color: #ccc;
+    image: url(../img/call-to-action-background.jpg);
+    size: cover;
+    position: center;
+  }
+  color: #fff;
+  h1 {
+    font-weight: 800;
+    margin-bottom: .5em;
+    color: inherit;
+  }
+}
