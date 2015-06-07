@@ -195,6 +195,14 @@
     </div>
   </footer>
 
+<div id="before-you-leave" class="reveal-modal text-center" data-reveal>
+  <h2>Don't miss out on our weekly deals!</h2>
+  <p class="lead">Some other text</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, natus. Illum repellendus ea, quae asperiores quisquam molestias ullam, sed cum.</p>
+  <p><a href="weekly-subscription.html" class="button success" id="accept-offer">I'd love weekly deals!</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
   <!-- Mobile search field (to go into footer) -->
   <!-- <div class="row hidden-for-large-up">
     <div class="columns">
@@ -217,7 +225,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
   <script>
+    // Initialize foundation
     $(document).foundation();
+
+    // When the mouse leaves the screen
+    $(document).mouseleave(function(){
+      // If the user hasn't already interacted with the modal
+      if( localStorage.getItem('before-you-go-offer') == null ) {
+        // Show the user a modal before they leave
+        $('#before-you-leave').foundation('reveal', 'open');
+        // If the user interacts with the modal
+        $('#before-you-leave .close-reveal-modal, #accept-offer, .reveal-modal-bg').click(function(){
+          // Save inside localstorage an instruction to not reveal the modal again
+          localStorage.setItem('before-you-go-offer', 'hide');
+        });
+      }
+    });
+
   </script>
 </body>
 </html>
