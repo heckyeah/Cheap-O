@@ -7,17 +7,14 @@
 				<label for="username">Username</label>
 				<input type="text" id="username" name="username" placeholder="Username" value="<?php echo $this->username; ?>">
 				<?php
-
 					function errorMessage($message) {
-						if( $message != '' ) {
-							echo '<small class="error">';
-							echo $message;
-							echo '</small>';
-						}
+						if( $message != '' ) : ?>
+							<small class="error">
+								<?php echo $message; ?>
+							</small>
+						<?php endif; 
 					}
-					errorMessage($this->usernameError);
-
-				?>
+					errorMessage($this->usernameError); ?>
 			</div>
 
 			<div>
