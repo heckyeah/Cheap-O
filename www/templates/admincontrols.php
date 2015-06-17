@@ -15,8 +15,9 @@
 
 				?>
 			</select>
-
-			<?php include 'templates/accountinfopage.php'; ?>
 		</form>
 	</div>
 </div>
+
+<?php include 'templates/accountinfopage.php'; ?>
+

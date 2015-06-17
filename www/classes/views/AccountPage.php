@@ -3,7 +3,7 @@
 class AccountPage extends Page {
 
 	// Properties
-	private $generalPasswordErrors;
+	private $confirmPasswordErrors;
 	private $oldPasswordErrors;
 	private $newPasswordErrors;
 
@@ -31,44 +31,75 @@ class AccountPage extends Page {
 		// Use the parents constructer
 		parent:: __construct($model);
 
-		// If the registration form has been submitted
+		// If the password form has been submitted
 		if( isset( $_POST['update-account'] ) ) {
 
-			$this->changePassword();
+			$this->comparePassword();
 
 		}
 
 	}
 
-	public function compareUsername() {
+	public function comparePassword() {
 
 		// Get the passwords used
 		$oldPass = $_POST['old-password'];
 		$newPass = $_POST['new-password'];
 		$confirmPass = $_POST['confirm-password'];
 
+		// Get who the user is
+		$username = $_SESSION['username'];
+
+		$this->dbc = new mysqli('localhost', 'root', '', 'cheapo');
+
+		// Filter the data
+		$username = $this->dbc->real_escape_string( $username );
+
+		// Prepare the SQL to find a user and get the hashed password
+		$sql = "SELECT Password FROM accounts WHERE Username = '$username'   ";
+
+		// Run the sql
+		$result = $this->dbc->query( $sql );
+
+		// Make sure there is a result
+		if( $result->num_rows == 0 ) {
+			return;
+		}
+
+		// Extract the data from the result
+		$data = $result->fetch_assoc();
+
+		// Use the password compat library
+		require 'vendor/password.php';
+
+
 		// Compare passwords
-		if ( $oldPass == '' || $newPass == '' || $confirmPass == '' ) {
-			$generalPasswordErrors = 'You must enter a password';
+		if ( $confirmPass == '' ) {
+			$this->confirmPasswordErrors = 'You must enter a password';
 		} 
 
-		// Old password corrections
-		if ( $oldPass !=  ) {
-			$oldPasswordErrors = 'Your current password is incorrect';
+		if ( $oldPass == '' ) {
+			$this->oldPasswordErrors = 'You need to enter your current password';
+		} elseif ( $newPass == $oldPass) {
+			$this->oldPasswordErrors = 'Your new password can not be the same as your old password';
+		} elseif ( !password_verify( $oldPass, $data['Password'] ) ) {
+			$this->oldPasswordErrors = 'The old password you entered was incorrect';
 		}
 
 		if ( $newPass == '' ) {
-			$newPasswordErrors = 'You cant make the new password the same as your old password';
+			$this->newPasswordErrors = 'You must enter a new password';
 		} elseif ( strlen($newPass) < 8 ) {
-			$newPasswordErrors = 'Your new password must be at least 8 characters long';
+			$this->newPasswordErrors = 'Your new password must be at least 8 characters long';
 		} elseif ( $newPass != $confirmPass ) {
-			$newPasswordErrors = 'You did not confirm the same password';
+			$this->newPasswordErrors = 'You did not confirm the same password';
 		}
 
-		if ( $generalPasswordErrors == '' && $oldPasswordErrors == '' && $newPasswordErrors == '') {
+		if ( $this->confirmPasswordErrors == '' && $this->oldPasswordErrors == '' && $this->newPasswordErrors == '') {
 
 			$this->model->changePassword($oldPass, $newPass);
 
+			// Redirect the user
+			header('Location: index.php?page=account');
 		}
 
 	}

@@ -11,7 +11,6 @@ class AccountModel extends Model {
 	public function changePassword($oldPass, $newPass) {
 
 		$username = $_SESSION['username'];
-		$password = $_POST['password'];
 
 		// Filter the data
 		$username = $this->dbc->real_escape_string( $username );
@@ -30,17 +29,24 @@ class AccountModel extends Model {
 		// Extract the data from the result
 		$data = $result->fetch_assoc();
 
-		// Hash the password
+
+		// Use the password compat library
 		require 'vendor/password.php';
 
-		$newHashedPassword = password_hash($newPass, PASSWORD_BCRYPT);
+		// Hash the password
+		$newPass = password_hash($newPass, PASSWORD_BCRYPT);
 
-		if (password_verify( $password, $data['Password'] ) ) {
+		if (password_verify( $oldPass, $data['Password'] ) ) {
 
-			
+			$updatePassword = "UPDATE accounts
+								SET Password ='$newPass'
+								WHERE Username = '$username'   ";
+
+			// Run the sql
+			$this->dbc->query($updatePassword);	
 
 		}
 
-
+	}
 
 }
