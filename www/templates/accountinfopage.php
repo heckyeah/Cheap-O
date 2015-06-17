@@ -1,20 +1,20 @@
 <div class="row">
-	<div class="columns">
+	<div class="columns medium-6">
+		<h2>Password Reset</h1>
 		<form>
 			<div>
-				<label for="password1">Old Password</label>
-				<input type="password" id="password1" name="password1">
+				<label for="old-password">Old Password</label>
+				<input type="password" id="old-password" name="old-password">
 			</div>
 
 			<div>
-				<label for="password2">New Password</label>
-				<input type="password" id="password2" name="password2" >
-				<input type="submit" value="Update Password" name="update-account" class="button tiny">
+				<label for="new-password">New Password</label>
+				<input type="password" id="new-password" name="new-password" >
 			</div>
 
 			<div>
-				<label for="password2">Confirm Password</label>
-				<input type="password" id="password2" name="password2" >
+				<label for="confirm-password">Confirm Password</label>
+				<input type="password" id="confirm-password" name="confirm-password" >
 				<input type="submit" value="Update Password" name="update-account" class="button tiny">
 			</div>
 		</form>
